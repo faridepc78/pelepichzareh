@@ -13,6 +13,7 @@
         <div class="rev_slider_wrapper">
             <div id="rev_slider" class="rev_slider fullscreenbanner">
                 <ul>
+
                     <li data-transition="slotzoom-horizontal" data-slotamount="6" data-masterspeed="0"
                         data-fsmasterspeed="0">
 
@@ -44,6 +45,7 @@
 
                         </div>
                     </li>
+
                     <li data-transition="slotzoom-horizontal" data-slotamount="6" data-masterspeed="0"
                         data-fsmasterspeed="0">
 
@@ -74,6 +76,7 @@
 
                         </div>
                     </li>
+
                     <li data-transition="slotzoom-horizontal" data-slotamount="6" data-masterspeed="0"
                         data-fsmasterspeed="0">
 

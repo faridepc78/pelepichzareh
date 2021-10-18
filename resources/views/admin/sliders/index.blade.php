@@ -51,7 +51,14 @@
 
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$value->name}}</td>
+
+                                            <td>
+                                                @if ($value->name!=null)
+                                                    {{$value->name}}
+                                                @else
+                                                    <i class="fa fa-close text-danger"></i>
+                                                @endif
+                                            </td>
 
                                             @if ($value->url!=null)
                                                 <td>

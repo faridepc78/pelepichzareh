@@ -20,7 +20,7 @@ class ProfileRequest extends FormRequest
             'email' => ['required', 'string', 'email'],
             'mobile' => ['required', 'numeric', 'digits:11', new ValidationMobile()],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
-            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024']
+            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120']
         ];
     }
 

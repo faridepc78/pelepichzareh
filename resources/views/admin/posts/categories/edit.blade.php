@@ -14,9 +14,9 @@
 
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('postsCategories.index')}}">مدیریت دسته بندی ها</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('posts.c_index')}}">مدیریت دسته بندی ها</a></li>
                         <li class="breadcrumb-item"><a class="my-active"
-                                                       href="{{route('postsCategories.edit',$category->id)}}">ویرایش
+                                                       href="{{route('posts.c_edit',$category->id)}}">ویرایش
                                 دسته بندی ({{$category->name}})</a></li>
                     </ol>
                 </div>
@@ -36,7 +36,7 @@
                             <h3 class="card-title">ویرایش دسته بندی ({{$category->name}})</h3>
                         </div>
 
-                        <form id="update_category_form" action="{{route('postsCategories.update',$category->id)}}"
+                        <form id="update_category_form" action="{{route('posts.c_update',$category->id)}}"
                               method="post">
 
                             @csrf
@@ -74,6 +74,20 @@
                                     @enderror
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="text">توضیحات دسته بندی</label>
+                                    <textarea class="form-control ckeditor @error('text') is-invalid @enderror"
+                                              id="text"
+                                              name="text" autocomplete="text"
+                                              autofocus>{{ old('text',$category->text) }}</textarea>
+
+                                    @error('text')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
                             </div>
 
                             <div class="card-footer">
@@ -88,6 +102,10 @@
         </div>
     </section>
 </div>
+
+@section('admin_js')
+    <script type="text/javascript" src="{{asset('assets/backend/plugins/ckeditor/ckeditor.js')}}"></script>
+@endsection
 
 @include('admin.layout.footer')
 

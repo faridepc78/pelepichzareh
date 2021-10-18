@@ -43,11 +43,11 @@
                             <div class="card-body">
 
                                 <div class="form-group">
-                                    <label for="name">نام اسلایدر *</label>
+                                    <label for="name">نام اسلایدر</label>
                                     <input onkeyup="this.value=removeSpaces(this.value)" type="text"
                                            class="form-control @error('name') is-invalid @enderror"
                                            value="{{ old('name') }}" id="name" name="name"
-                                           placeholder="لطفا نام اسلایدر را وارد کنید"
+                                           placeholder="در صورت تمایل نام اسلایدر را وارد کنید"
                                            autocomplete="name" autofocus>
 
                                     @error('name')
@@ -125,10 +125,6 @@
         $('#store_slider_form').validate({
 
             rules: {
-                name: {
-                    required: true
-                },
-
                 url: {
                     checkUrl: true
                 },
@@ -139,10 +135,6 @@
             },
 
             messages: {
-                name: {
-                    required: "لطفا نام اسلایدر را وارد کنید"
-                },
-
                 url: {
                     checkUrl: "لطفا لینک اسلایدر را صحیح وارد کنید"
                 },

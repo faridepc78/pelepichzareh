@@ -60,14 +60,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="slug">اسلاگ محصول *</label>
+                                    <label for="bio">بیو محصول</label>
                                     <input onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('slug') is-invalid @enderror"
-                                           value="{{ old('slug',$product->slug) }}" id="slug" name="slug"
-                                           placeholder="لطفا اسلاگ محصول را وارد کنید"
-                                           autocomplete="slug" autofocus>
+                                           class="form-control @error('bio') is-invalid @enderror"
+                                           value="{{ old('bio',$product->bio) }}" id="bio" name="bio"
+                                           placeholder="در صورت تمایل بیو محصول را وارد کنید"
+                                           autocomplete="bio" autofocus>
 
-                                    @error('slug')
+                                    @error('bio')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -75,52 +75,23 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="code">کد محصول *</label>
-                                    <input onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('code') is-invalid @enderror"
-                                           value="{{ old('code',$product->code) }}" id="code" name="code"
-                                           placeholder="لطفا کد محصول را وارد کنید"
-                                           autocomplete="code" autofocus>
-
-                                    @error('code')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="album_id">آلبوم محصول *</label>
-                                    <select class="form-control  @error('album_id') is-invalid @enderror"
-                                            id="album_id"
-                                            name="album_id">
+                                    <label for="category_id">دسته بندی محصول *</label>
+                                    <select class="form-control  @error('category_id') is-invalid @enderror"
+                                            id="category_id"
+                                            name="category_id">
                                         <option selected disabled value="">
-                                            لطفا آلبوم محصول را انتخاب کنید
+                                            لطفا دسته بندی محصول را انتخاب کنید
                                         </option>
 
-                                        @if (count($albums))
+                                        @if (count($categories))
 
-                                            @foreach($albums as $value)
+                                            @foreach($categories as $value)
 
-                                                <optgroup label="{{$value->name}}">
-
-                                                    <option disabled value="" style="font-size: 18px">{{$value->name}}</option>
-
-                                                    @if (count($value->sub))
-
-                                                        @foreach($value->sub as $item)
-
-                                                            <option style="color: red"
-                                                                    @if ($item->id==old('album_id',$product['album_id']))
-                                                                    selected="selected"
-                                                                    @endif
-                                                                    value="{{$item->id}}">{{$item->name}}</option>
-
-                                                        @endforeach
-
+                                                <option
+                                                    @if ($value->id==old('category_id',$product['category_id']))
+                                                    selected="selected"
                                                     @endif
-
-                                                </optgroup>
+                                                    value="{{$value->id}}">{{$value->name}}</option>
 
                                             @endforeach
 
@@ -128,7 +99,7 @@
 
                                     </select>
 
-                                    @error('album_id')
+                                    @error('category_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -153,20 +124,6 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="text">توضیحات محصول *</label>
-                                    <textarea class="form-control ckeditor @error('text') is-invalid @enderror"
-                                              id="text"
-                                              name="text" autocomplete="text"
-                                              autofocus>{{ old('text',$product->text) }}</textarea>
-
-                                    @error('text')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
                             </div>
 
                             <div class="card-footer">
@@ -182,18 +139,11 @@
     </section>
 </div>
 
-@section('admin_js')
-    <script type="text/javascript" src="{{asset('assets/backend/plugins/ckeditor/ckeditor.js')}}"></script>
-@endsection
-
 @include('admin.layout.footer')
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-        var text_field = 'text';
-        var text_error = 'لطفا توضیحات محصول را وارد کنید';
 
         $('#update_product_form').validate({
 
@@ -202,15 +152,7 @@
                     required: true
                 },
 
-                slug: {
-                    required: true
-                },
-
-                code: {
-                    required: true
-                },
-
-                album_id: {
+                category_id: {
                     required: true
                 }
             },
@@ -220,21 +162,8 @@
                     required: "لطفا نام محصول را وارد کنید"
                 },
 
-                slug: {
-                    required: "لطفا اسلاگ محصول را وارد کنید"
-                },
-
-                code: {
-                    required: "لطفا کد محصول را وارد کنید"
-                },
-
-                album_id: {
-                    required: "لطفا آلبوم محصول را انتخاب کنید"
-                }
-            },
-            submitHandler: function (form) {
-                if (validateCkeditor(text_field, text_error) === true) {
-                    form.submit();
+                category_id: {
+                    required: "لطفا دسته بندی محصول را انتخاب کنید"
                 }
             }
 

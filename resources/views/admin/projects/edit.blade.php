@@ -60,14 +60,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="slug">اسلاگ پروژه *</label>
+                                    <label for="bio">بیو پروژه</label>
                                     <input onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('slug') is-invalid @enderror"
-                                           value="{{ old('slug',$project->slug) }}" id="slug" name="slug"
-                                           placeholder="لطفا اسلاگ پروژه را وارد کنید"
-                                           autocomplete="slug" autofocus>
+                                           class="form-control @error('bio') is-invalid @enderror"
+                                           value="{{ old('bio',$project->bio) }}" id="bio" name="bio"
+                                           placeholder="در صورت تمایل بیو پروژه را وارد کنید"
+                                           autocomplete="bio" autofocus>
 
-                                    @error('slug')
+                                    @error('bio')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -75,29 +75,31 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="customer">مشتری پروژه *</label>
-                                    <input onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('customer') is-invalid @enderror"
-                                           value="{{ old('customer',$project->customer) }}" id="customer" name="customer"
-                                           placeholder="لطفا مشتری پروژه را وارد کنید"
-                                           autocomplete="customer" autofocus>
+                                    <label for="category_id">دسته بندی پروژه *</label>
+                                    <select class="form-control  @error('category_id') is-invalid @enderror"
+                                            id="category_id"
+                                            name="category_id">
+                                        <option selected disabled value="">
+                                            لطفا دسته بندی پروژه را انتخاب کنید
+                                        </option>
 
-                                    @error('customer')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                                        @if (count($categories))
 
-                                <div class="form-group">
-                                    <label for="link">لینک پروژه</label>
-                                    <input onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('link') is-invalid @enderror"
-                                           value="{{ old('link',$project->link) }}" id="link" name="link"
-                                           placeholder="در صورت تمایل لینک پروژه را وارد کنید"
-                                           autocomplete="link" autofocus>
+                                            @foreach($categories as $value)
 
-                                    @error('link')
+                                                <option
+                                                    @if ($value->id==old('category_id',$project->category_id))
+                                                    selected="selected"
+                                                    @endif
+                                                    value="{{$value->id}}">{{$value->name}}</option>
+
+                                            @endforeach
+
+                                        @endif
+
+                                    </select>
+
+                                    @error('category_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -121,20 +123,6 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="text">توضیحات پروژه *</label>
-                                    <textarea class="form-control ckeditor @error('text') is-invalid @enderror"
-                                              id="text"
-                                              name="text" autocomplete="text"
-                                              autofocus>{{ old('text',$project->text) }}</textarea>
-
-                                    @error('text')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
                             </div>
 
                             <div class="card-footer">
@@ -150,18 +138,11 @@
     </section>
 </div>
 
-@section('admin_js')
-    <script type="text/javascript" src="{{asset('assets/backend/plugins/ckeditor/ckeditor.js')}}"></script>
-@endsection
-
 @include('admin.layout.footer')
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-        var text_field = 'text';
-        var text_error = 'لطفا توضیحات پروژه را وارد کنید';
 
         $('#update_project_form').validate({
 
@@ -170,16 +151,8 @@
                     required: true
                 },
 
-                slug: {
+                category_id: {
                     required: true
-                },
-
-                customer: {
-                    required: true
-                },
-
-                link: {
-                    checkUrl: true
                 }
             },
 
@@ -188,21 +161,8 @@
                     required: "لطفا نام پروژه را وارد کنید"
                 },
 
-                slug: {
-                    required: "لطفا اسلاگ پروژه را وارد کنید"
-                },
-
-                customer: {
-                    required: "لطفا مشتری پروژه را وارد کنید"
-                },
-
-                link: {
-                    checkUrl: "لطفا لینک پروژه را صحیح وارد کنید"
-                }
-            },
-            submitHandler: function (form) {
-                if (validateCkeditor(text_field, text_error) === true) {
-                    form.submit();
+                category_id: {
+                    required: "لطفا دسته بندی پروژه را انتخاب کنید"
                 }
             }
 

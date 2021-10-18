@@ -16,7 +16,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('posts.index')}}">مدیریت پست ها</a></li>
                         <li class="breadcrumb-item"><a class="my-active"
-                                                       href="{{route('posts.media.index',$post->id)}}">مدیریت
+                                                       href="{{route('posts.m_index',$post->id)}}">مدیریت
                                 مدیا پست ({{$post->name}})</a></li>
                     </ol>
                 </div>
@@ -37,7 +37,7 @@
                         </div>
 
                         <form id="management_post_media_form"
-                              action="{{route('posts.media.store',$post['id'])}}"
+                              action="{{route('posts.m_store',$post['id'])}}"
                               method="post"
                               enctype="multipart/form-data">
 
@@ -100,11 +100,11 @@
                                                      src="{{$value->media->original}}"
                                                      alt="{{$value->media->original}}"></td>
                                             <td>
-                                                <a href="{{ route('posts.media.destroy', [$post['id'],$value->id]) }}"
+                                                <a href="{{ route('posts.m_destroy', [$post['id'],$value->id]) }}"
                                                    onclick="destroyPostMedia(event,{{ $post['id'] }}, {{ $value->id }})"><i
                                                         class="fa fa-remove text-danger"></i></a>
                                                 <form
-                                                    action="{{ route('posts.media.destroy', [$post['id'],$value->id]) }}"
+                                                    action="{{ route('posts.m_destroy', [$post['id'],$value->id]) }}"
                                                     method="post"
                                                     id="destroy-PostMedia-{{ $post['id'] }}-{{ $value->id }}">
                                                     @csrf

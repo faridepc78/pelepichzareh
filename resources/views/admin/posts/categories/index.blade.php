@@ -1,5 +1,5 @@
 @section('admin_title')
-    <title>پنل مدیریت پله پیچ زارع | دسته بندی ها</title>
+    <title>پنل مدیریت پله پیچ زارع | دسته بندی پست ها</title>
 @endsection
 
 @include('admin.layout.header')
@@ -14,7 +14,7 @@
 
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a class="my-active" href="{{route('posts_categories.index')}}">مدیریت
+                        <li class="breadcrumb-item"><a class="my-active" href="{{route('posts.c_index')}}">مدیریت
                                 دسته بندی ها</a></li>
                     </ol>
                 </div>
@@ -54,14 +54,14 @@
                                             <td>{{$value->slug}}</td>
 
                                             <td>
-                                                <a target="_blank" href="{{route('posts_categories.edit',$value->id)}}">
+                                                <a target="_blank" href="{{route('posts.c_edit',$value->id)}}">
                                                     <i class="fa fa-edit text-primary"></i>
                                                 </a>
                                             </td>
-                                            <td><a href="{{ route('posts_categories.destroy', $value->id) }}"
+                                            <td><a href="{{ route('posts.c_destroy', $value->id) }}"
                                                    onclick="destroyCategory(event, {{ $value->id }})"><i
-                                                            class="fa fa-remove text-danger"></i></a>
-                                                <form action="{{ route('posts_categories.destroy', $value->id) }}"
+                                                        class="fa fa-remove text-danger"></i></a>
+                                                <form action="{{ route('posts.c_destroy', $value->id) }}"
                                                       method="post" id="destroy-Category-{{ $value->id }}">
                                                     @csrf
                                                     @method('delete')

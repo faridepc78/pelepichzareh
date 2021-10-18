@@ -73,6 +73,22 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="bio">بیو پست *</label>
+                                    <textarea rows="7" style="resize: vertical"
+                                              onkeyup="this.value=removeSpaces(this.value)" type="text"
+                                              class="form-control @error('bio') is-invalid @enderror"
+                                              id="bio" name="bio"
+                                              placeholder="لطفا بیو پست را وارد کنید"
+                                              autocomplete="slug" autofocus>{{ old('bio') }}</textarea>
+
+                                    @error('bio')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
                                     <label for="category_id">دسته بندی پست *</label>
                                     <select class="form-control  @error('category_id') is-invalid @enderror"
                                             id="category_id"
@@ -108,30 +124,6 @@
                                            autofocus id="image" name="image">
 
                                     @error('image')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="status">وضعیت پست *</label>
-                                    <select class="form-control  @error('status') is-invalid @enderror"
-                                            id="status"
-                                            name="status">
-                                        <option selected disabled value="">لطفا وضعیت پست را انتخاب کنید</option>
-
-                                        @foreach(\App\Models\Post::$statuses as $value)
-                                            <option
-                                                @if ($value==old('status'))
-                                                selected="selected"
-                                                @endif
-                                                value="{{$value}}">@lang($value)</option>
-                                        @endforeach
-
-                                    </select>
-
-                                    @error('status')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -191,15 +183,15 @@
                     required: true
                 },
 
+                bio: {
+                    required: true
+                },
+
                 category_id: {
                     required: true
                 },
 
                 image: {
-                    required: true
-                },
-
-                status: {
                     required: true
                 }
             },
@@ -213,16 +205,16 @@
                     required: "لطفا اسلاگ پست را وارد کنید"
                 },
 
+                bio: {
+                    required: "لطفا بیو پست را وارد کنید"
+                },
+
                 category_id: {
                     required: "لطفا دسته بندی پست را انتخاب کنید"
                 },
 
                 image: {
                     required: "لطفا تصویر پست را انتخاب کنید"
-                },
-
-                status: {
-                    required: "لطفا وضعیت پست را انتخاب کنید"
                 }
             },
             submitHandler: function (form) {
