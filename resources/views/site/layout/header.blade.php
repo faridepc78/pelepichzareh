@@ -8,8 +8,7 @@
     @yield('site_title')
 
     <meta name="description"
-          content="گروه معماری دیمه، طراح و تولیدکننده برتر پله فلزی دوبلکس، پله گرد در کشور، بدون رقیب در طراحی و کیفیت">
-    <link rel="shortcut icon" href="/assets/frontend/img/favicon3.png">
+          content="پله پیچ زارع">
 
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -68,9 +67,8 @@
 <header id="top" class="header-home">
     <div class="brand-panel">
         <a href="#top" class="brand js-target-scroll">
-            <img src="/assets/frontend/img/logo.png">
+            پله پیچ زارع
         </a>
-        <div class="brand-name">DIMEH</div>
         <div class="slide-number">
             <span class="current-number text-primary">0<span class="count">1</span></span>
             <sup><span class="delimiter">/</span> 0<span class="total-count"></span></sup>
@@ -97,7 +95,7 @@
             <ul class="navbar-desctop-menu">
                 <li class="">
 
-                    <a href="/" title="صفحه اصلی">صفحه اصلی</a>
+                    <a href="{{route('home')}}" title="صفحه اصلی">صفحه اصلی</a>
 
                 </li>
                 <li>

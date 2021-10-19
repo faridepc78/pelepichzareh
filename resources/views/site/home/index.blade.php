@@ -14,106 +14,52 @@
             <div id="rev_slider" class="rev_slider fullscreenbanner">
                 <ul>
 
-                    <li data-transition="slotzoom-horizontal" data-slotamount="6" data-masterspeed="0"
-                        data-fsmasterspeed="0">
+                    @if (count($sliders))
 
-                        <img src="/assets/frontend/img/uploads/slide1.jpg" alt="" data-bgposition="center center"
-                             data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
+                        @foreach($sliders as $value)
 
-                        <div class="slide-title tp-caption tp-resizeme" data-x="['center','center','center','center']"
-                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                             data-voffset="['55','55', '55']" data-fontsize="['50','45', '55']"
-                             data-lineheight="['80','75', '65']" data-width="['1100','700','480']" data-height="none"
-                             data-whitespace="normal" data-transform_idle="o:1;"
-                             data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
-                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                             data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
-                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
-                            پله فلزی دیمه
-                        </div>
+                            <li data-transition="slotzoom-horizontal" data-slotamount="6" data-masterspeed="0"
+                                data-fsmasterspeed="0">
 
-                        <div class="slide-subtitle tp-caption tp-resizeme iran" data-x="['240','240','180','240']"
-                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                             data-voffset="['108','108', '118']" data-fontsize="['18','25','25']"
-                             data-lineheight="['80','75', '65']" data-width="['1100','700','550']" data-height="none"
-                             data-whitespace="normal" data-transform_idle="o:1;"
-                             data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
-                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                             data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
-                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
-                            طراح و تولیدکننده برتر ایران
+                                <img src="{{$value->image->original}}" alt="" data-bgposition="center center"
+                                     data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
-                        </div>
-                    </li>
+                                <div class="slide-title tp-caption tp-resizeme" data-x="['center','center','center','center']"
+                                     data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
+                                     data-voffset="['55','55', '55']" data-fontsize="['50','45', '55']"
+                                     data-lineheight="['80','75', '65']" data-width="['1100','700','480']" data-height="none"
+                                     data-whitespace="normal" data-transform_idle="o:1;"
+                                     data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+                                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                     data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+                                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
+                                    {{$value->name}}
+                                </div>
 
-                    <li data-transition="slotzoom-horizontal" data-slotamount="6" data-masterspeed="0"
-                        data-fsmasterspeed="0">
+                                <div class="slide-subtitle tp-caption tp-resizeme iran" data-x="['240','240','180','240']"
+                                     data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
+                                     data-voffset="['108','108', '118']" data-fontsize="['18','25','25']"
+                                     data-lineheight="['80','75', '65']" data-width="['1100','700','550']" data-height="none"
+                                     data-whitespace="normal" data-transform_idle="o:1;"
+                                     data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
+                                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                                     data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
+                                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
+                                    {{$value->text}}
+                                </div>
 
-                        <img src="/assets/frontend/img/uploads/slide2.jpg" alt="" data-bgposition="center center"
-                             data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
+                            </li>
 
-                        <div class="slide-title tp-caption tp-resizeme" data-x="['center','center','center','center']"
-                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                             data-voffset="['55','55', '55']" data-fontsize="['50','45', '55']"
-                             data-lineheight="['80','75', '65']" data-width="['1100','700','480']" data-height="none"
-                             data-whitespace="normal" data-transform_idle="o:1;"
-                             data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
-                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                             data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
-                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
-                            طراح و تولید کننده پله های لوکس فلزی
-                        </div>
+                        @endforeach
 
-                        <div class="slide-subtitle tp-caption tp-resizeme iran" data-x="['240','240','180','240']"
-                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                             data-voffset="['108','108', '118']" data-fontsize="['18','25','25']"
-                             data-lineheight="['80','75', '65']" data-width="['1100','700','550']" data-height="none"
-                             data-whitespace="normal" data-transform_idle="o:1;"
-                             data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
-                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                             data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
-                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
-
-                        </div>
-                    </li>
-
-                    <li data-transition="slotzoom-horizontal" data-slotamount="6" data-masterspeed="0"
-                        data-fsmasterspeed="0">
-
-                        <img src="/assets/frontend/img/uploads/slide3.jpg" alt="" data-bgposition="center center"
-                             data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
-
-                        <div class="slide-title tp-caption tp-resizeme" data-x="['center','center','center','center']"
-                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                             data-voffset="['55','55', '55']" data-fontsize="['50','45', '55']"
-                             data-lineheight="['80','75', '65']" data-width="['1100','700','480']" data-height="none"
-                             data-whitespace="normal" data-transform_idle="o:1;"
-                             data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
-                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                             data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
-                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
-
-                        </div>
-
-                        <div class="slide-subtitle tp-caption tp-resizeme iran" data-x="['240','240','180','240']"
-                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                             data-voffset="['108','108', '118']" data-fontsize="['18','25','25']"
-                             data-lineheight="['80','75', '65']" data-width="['1100','700','550']" data-height="none"
-                             data-whitespace="normal" data-transform_idle="o:1;"
-                             data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
-                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                             data-mask_in="x:50px;y:0px;s:inherit;e:inherit;"
-                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500">
-
-                        </div>
-                    </li>
+                    @endif
 
                 </ul>
             </div>
         </div>
     </main>
-    <div class="content">
 
+    <div class="content">
 
         <section id="services" class="services section">
             <div class="container">

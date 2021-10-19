@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Category extends Model
 {
@@ -32,4 +33,19 @@ class Category extends Model
             self::PROJECT,
             self::POST
         ];
+
+    public function products_path()
+    {
+        return route('products.category', Hashids::encode($this->id) . '-' . $this->slug);
+    }
+
+    public function projects_path()
+    {
+        return route('projects.category', Hashids::encode($this->id) . '-' . $this->slug);
+    }
+
+    public function posts_path()
+    {
+        return route('posts.category', Hashids::encode($this->id) . '-' . $this->slug);
+    }
 }

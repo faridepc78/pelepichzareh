@@ -3,12 +3,21 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\SliderRepository;
 
 class MainController extends Controller
 {
+    private $sliderRepository;
+
+    public function __construct(SliderRepository $sliderRepository)
+    {
+        $this->sliderRepository = $sliderRepository;
+    }
+
     public function home()
     {
-        return view('site.home.index');
+        $sliders = $this->sliderRepository->getAll();
+        return view('site.home.index',compact('sliders'));
     }
 
     public function about_us()

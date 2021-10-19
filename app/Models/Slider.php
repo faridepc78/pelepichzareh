@@ -12,7 +12,6 @@ class Slider extends Model
         [
             'name',
             'text',
-            'url',
             'image_id'
         ];
 

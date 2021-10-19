@@ -18,7 +18,6 @@ class UpdateSliderRequest extends FormRequest
         return [
             'name' => ['nullable', 'string', 'max:255', 'unique:sliders,name,' . $id],
             'text' => ['nullable', 'string'],
-            'url' => ['nullable', 'url', 'unique:sliders,url,' . $id],
             'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120']
         ];
     }
@@ -28,7 +27,6 @@ class UpdateSliderRequest extends FormRequest
         return [
             'name' => 'نام اسلایدر',
             'text' => 'توضیحات اسلایدر',
-            'url' => 'لینک اسلایدر',
             'image' => 'تصویر اسلایدر'
         ];
     }

@@ -12,7 +12,6 @@ class SliderRepository
             ->create([
                 'name' => $values['name'],
                 'text' => $values['text'],
-                'url' => $values['url'],
                 'image_id' => null
             ]);
     }
@@ -46,7 +45,6 @@ class SliderRepository
             ->update([
                 'name' => $values['name'],
                 'text' => $values['text'],
-                'url' => $values['url'],
                 'image_id' => $image_id
             ]);
     }

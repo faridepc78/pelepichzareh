@@ -74,21 +74,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="url">لینک اسلایدر</label>
-                                    <input onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('url') is-invalid @enderror"
-                                           value="{{ old('url') }}" id="url" name="url"
-                                           placeholder="در صورت تمایل لینک اسلایدر را وارد کنید"
-                                           autocomplete="url" autofocus>
-
-                                    @error('url')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
                                     <label for="image">تصویر اسلایدر *</label>
                                     <input accept=".jpg,.jpeg,.png" type="file"
                                            class="form-control @error('image') is-invalid @enderror"
@@ -125,20 +110,12 @@
         $('#store_slider_form').validate({
 
             rules: {
-                url: {
-                    checkUrl: true
-                },
-
                 image: {
                     required: true
                 }
             },
 
             messages: {
-                url: {
-                    checkUrl: "لطفا لینک اسلایدر را صحیح وارد کنید"
-                },
-
                 image: {
                     required: "لطفا تصویر اسلایدر را انتخاب کنید"
                 }

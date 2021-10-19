@@ -39,7 +39,6 @@
                                 <tr>
                                     <th>ردیف</th>
                                     <th>نام</th>
-                                    <th>لینک</th>
                                     <th>تصویر</th>
                                     <th>ویرایش</th>
                                     <th>حذف</th>
@@ -60,17 +59,6 @@
                                                 @endif
                                             </td>
 
-                                            @if ($value->url!=null)
-                                                <td>
-                                                    <a href="javascript:void(0)" data-toggle="modal"
-                                                       data-target="#sliderUrl{{$value['id']}}">
-                                                        <i class="fa fa-eye text-success"></i>
-                                                    </a>
-                                                </td>
-                                            @else
-                                                <td><i class="fa fa-close text-danger"></i></td>
-                                            @endif
-
                                             <td><img class="img-bordered" style="width: 250px;height: 100px"
                                                      src="{{$value->image->original}}"
                                                      alt="{{$value->image->original}}"></td>
@@ -89,41 +77,6 @@
                                                 </form>
                                             </td>
                                         </tr>
-
-                                        <div class="modal fade mt-lg-5"
-                                             id="sliderUrl{{$value['id']}}" tabindex="-1"
-                                             role="dialog"
-                                             aria-hidden="true">
-
-                                            <div class="modal-dialog modal-lg" role="document">
-
-                                                <div class="modal-content">
-
-                                                    <div class="modal-header">
-
-                                                        <h6 class="modal-title">
-                                                            لینک اسلایدر
-                                                            ({{$value->name}})
-                                                        </h6>
-
-                                                        <a style="color: red;cursor: pointer"
-                                                           data-dismiss="modal" aria-label="Close">
-                                                            <i style="color: red" class="fa fa-close"></i>
-                                                        </a>
-
-                                                    </div>
-
-                                                    <div class="modal-body">
-
-                                                        <p class="text-left">{{$value['url']}}</p>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
 
                                     @endforeach
 

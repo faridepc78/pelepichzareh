@@ -16,7 +16,6 @@ class StoreSliderRequest extends FormRequest
         return [
             'name' => ['nullable', 'string', 'max:255', 'unique:sliders,name'],
             'text' => ['nullable', 'string'],
-            'url' => ['nullable', 'url', 'unique:sliders,url'],
             'image' => ['required', 'mimes:jpg,png,jpeg', 'max:5120']
         ];
     }
@@ -26,7 +25,6 @@ class StoreSliderRequest extends FormRequest
         return [
             'name' => 'نام اسلایدر',
             'text' => 'توضیحات اسلایدر',
-            'url' => 'لینک اسلایدر',
             'image' => 'تصویر اسلایدر'
         ];
     }

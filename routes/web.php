@@ -76,6 +76,15 @@ Route::group(['prefix' => '/', 'middleware' => ['web', 'throttle:50,1'],
     Route::get('contact-us', 'MainController@contact_us')->name('contact-us');
     Route::post('contact-us', 'MainController@contact_us_send')->name('contact-us-send');
 
+    Route::get('products/category/{slug}','MainController@products_category')->name('products.category');
+    Route::get('product/{slug}','MainController@product')->name('product');
+
+    Route::get('projects/category/{slug}','MainController@projects_category')->name('projects.category');
+    Route::get('project/{slug}','MainController@project')->name('project');
+
+    Route::get('posts/category/{slug}','MainController@posts_category')->name('posts.category');
+    Route::get('post/{slug}','MainController@post')->name('post');
+
 });
 
 /*END SITE*/
