@@ -267,67 +267,31 @@
                         </ul>
                     </li>
 
-                    {{--                    <li class="nav-item has-treeview {{ request()->routeIs(['brands.index',--}}
-                    {{--'brands.create',--}}
-                    {{--'brands.edit']) ? 'menu-open' : '' }}">--}}
+                    <li class="nav-item has-treeview {{ request()->routeIs(['contacts.index',
+                    'contacts.single']) ? 'menu-open' : '' }}">
 
-                    {{--                        <a href="#"--}}
-                    {{--                           class="nav-link {{ request()->routeIs(['brands.index',--}}
-                    {{--'brands.create',--}}
-                    {{--'brands.edit']) ? 'active' : '' }}">--}}
-                    {{--                            <i class="nav-icon fa fa-apple"></i>--}}
-                    {{--                            <p>--}}
-                    {{--                                برند ها--}}
-                    {{--                                <i class="fa fa-angle-left right"></i>--}}
-                    {{--                            </p>--}}
-                    {{--                        </a>--}}
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['contacts.index',
+                    'contacts.single']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-phone"></i>
+                            <p>
+                                تماس ها
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
 
-                    {{--                        <ul class="nav nav-treeview">--}}
+                        <ul class="nav nav-treeview">
 
-                    {{--                            <li class="nav-item">--}}
-                    {{--                                <a href="{{ route('brands.index') }}"--}}
-                    {{--                                   class="nav-link {{ request()->routeIs(['brands.index']) ? 'active' : '' }}">--}}
-                    {{--                                    <i class="fa fa-circle-o nav-icon"></i>--}}
-                    {{--                                    <p>مدیریت برند ها</p>--}}
-                    {{--                                </a>--}}
-                    {{--                            </li>--}}
+                            <li class="nav-item">
+                                <a href="{{ route('contacts.index') }}"
+                                   class="nav-link {{ request()->routeIs(['contacts.index','contacts.single']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت تماس ها</p>
+                                </a>
+                            </li>
 
-                    {{--                            <li class="nav-item">--}}
-                    {{--                                <a href="{{ route('brands.create') }}"--}}
-                    {{--                                   class="nav-link {{ request()->routeIs('brands.create') ? 'active' : '' }}">--}}
-                    {{--                                    <i class="fa fa-circle-o nav-icon"></i>--}}
-                    {{--                                    <p>ایجاد برند ها</p>--}}
-                    {{--                                </a>--}}
-                    {{--                            </li>--}}
-
-                    {{--                        </ul>--}}
-                    {{--                    </li>--}}
-
-                    {{--                    <li class="nav-item has-treeview {{ request()->routeIs(['contacts.index',--}}
-                    {{--'contacts.single']) ? 'menu-open' : '' }}">--}}
-
-                    {{--                        <a href="#"--}}
-                    {{--                           class="nav-link {{ request()->routeIs(['contacts.index',--}}
-                    {{--'contacts.single']) ? 'active' : '' }}">--}}
-                    {{--                            <i class="nav-icon fa fa-phone"></i>--}}
-                    {{--                            <p>--}}
-                    {{--                                تماس ها--}}
-                    {{--                                <i class="fa fa-angle-left right"></i>--}}
-                    {{--                            </p>--}}
-                    {{--                        </a>--}}
-
-                    {{--                        <ul class="nav nav-treeview">--}}
-
-                    {{--                            <li class="nav-item">--}}
-                    {{--                                <a href="{{ route('contacts.index') }}"--}}
-                    {{--                                   class="nav-link {{ request()->routeIs(['contacts.index','contacts.single']) ? 'active' : '' }}">--}}
-                    {{--                                    <i class="fa fa-circle-o nav-icon"></i>--}}
-                    {{--                                    <p>مدیریت تماس ها</p>--}}
-                    {{--                                </a>--}}
-                    {{--                            </li>--}}
-
-                    {{--                        </ul>--}}
-                    {{--                    </li>--}}
+                        </ul>
+                    </li>
 
                     <li class="nav-item">
 

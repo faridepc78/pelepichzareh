@@ -45,6 +45,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'throttle:50,
     Route::post('posts/media/{post_id}', 'PostController@m_store')->name('posts.m_store');
     Route::delete('posts/media/{post_id}/{id}/destroy', 'PostController@m_destroy')->name('posts.m_destroy');
     Route::resource('posts', 'PostController')->except('show');
+
+    Route::get('contacts', 'ContactController@index')->name('contacts.index');
+    Route::get('contacts/single/{id}', 'ContactController@single')->name('contacts.single');
+
 });
 
 /*END ADMIN*/
@@ -59,6 +63,7 @@ Route::group(['prefix' => '/', 'middleware' => ['web', 'throttle:50,1'],
     Route::post('login', 'LoginController@login')->name('login');
 
     Route::any('logout', 'LoginController@logout')->name('logout')->middleware('auth');
+
 });
 
 /*END AUTH*/
@@ -77,10 +82,8 @@ Route::group(['prefix' => '/', 'middleware' => ['web', 'throttle:50,1'],
     Route::post('contact-us', 'MainController@contact_us_send')->name('contact-us-send');
 
     Route::get('products/category/{slug}','MainController@products_category')->name('products.category');
-    Route::get('product/{slug}','MainController@product')->name('product');
 
     Route::get('projects/category/{slug}','MainController@projects_category')->name('projects.category');
-    Route::get('project/{slug}','MainController@project')->name('project');
 
     Route::get('posts/category/{slug}','MainController@posts_category')->name('posts.category');
     Route::get('post/{slug}','MainController@post')->name('post');

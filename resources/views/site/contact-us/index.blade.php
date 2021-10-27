@@ -5,7 +5,8 @@
 @include('site.layout.header')
 
 <div class="layout">
-    <main class="main main-inner bg-about" style="background-image:url('/assets/frontend/img/bg/project.jpg');"
+    <main class="main main-inner bg-about"
+          style="background-image:url({{asset('assets/frontend/img/bg/projects.jpg')}});"
           data-stellar-background-ratio="0.6">
         <div class="container">
             <header class="main-header">
@@ -31,13 +32,13 @@
         <section id="about" class="about">
             <div class="container">
                 <div class="entry">
-                    <div class="pagesimg"><img class="img-responsive" src="/assets/frontend/img/uploads/aboutBig1(2).jpg"/>
+                    <div class="pagesimg"><img class="img-responsive"
+                                               src="{{asset('assets/frontend/img/bg/contacts.jpg')}}"/>
                     </div>
                     <div class="entry-text mydiv">
                         <div style="text-align: center;">دفتر مركزى : تهران ؛ سعادت آباد ، میدان کاج<br/>
                             تلفن : 22141821 (021) ، 22131821 (021) ، 22064647 (021) ، 22063647 (021)<br/>
                             همراه : 09123181821<br/>
-                            فاکس : 22099032 (021)<br/>
                             &nbsp;
                         </div>
                     </div>
@@ -45,8 +46,6 @@
             </div>
         </section>
 
-
-        <script src='https://www.google.com/recaptcha/api.js'></script>
         <section class="contacts section">
             <div class="container">
                 <header class="section-header">
@@ -57,48 +56,112 @@
                     <div class="row-base row">
 
                         <div class="col-base  col-md-12">
-                            <form id="contact" action="/fa/Contact/ContactAdd" method="post">
+
+                            <form id="contact_form" action="{{route('contact-us-send')}}" method="post">
+
+                                @csrf
+
                                 <div class="row-field row">
                                     <div class="col-field col-sm-6 col-md-4">
+
                                         <div class="form-group">
-                                            <input type="hidden" name="url" id="url"
-                                                   value="http://dimehspiral.com/fa/pages/20/%D8%AA%D9%85%D8%A7%D8%B3-%D8%A8%D8%A7-%D9%85%D8%A7"/>
-                                            <input type="text" class="form-control" name="Name" id="Name" required
-                                                   placeholder="نام">
+                                            <input value="{{old('name')}}" autocomplete="name" autofocus
+                                                   onkeyup="this.value=removeSpaces(this.value)"
+                                                   type="text" name="name" id="name" class="form-control @error('name') is-invalid
+                                           @enderror" placeholder="نام *">
+
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                            @enderror
                                         </div>
+
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="Email" id="Email" required
+                                            <input value="{{old('email')}}" autocomplete="email" autofocus
+                                                   onkeyup="this.value=removeSpaces(this.value)" type="text"
+                                                   name="email"
+                                                   id="email" class="form-control @error('email') is-invalid
+                                           @enderror"
                                                    placeholder="ایمیل *">
-                                        </div>
-                                    </div>
-                                    <div class="col-field col-sm-6 col-md-4">
-                                        <div class="form-group">
-                                            <input type="tel" class="form-control" name="phone" id="phone"
-                                                   placeholder="تلفن">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="company" id="company"
-                                                   placeholder="شرکت">
+
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                            @enderror
                                         </div>
 
                                     </div>
+
+                                    <div class="col-field col-sm-6 col-md-4">
+
+                                        <div class="form-group">
+                                            <input onkeyup="this.value=removeSpaces(this.value)"
+                                                   value="{{old('mobile')}}" autocomplete="mobile" autofocus type="text"
+                                                   class="form-control @error('mobile') is-invalid
+                                           @enderror" name="mobile" id="mobile"
+                                                   placeholder="تلفن همراه *">
+
+                                            @error('mobile')
+                                            <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input onkeyup="this.value=removeSpaces(this.value)"
+                                                   value="{{old('company')}}" autocomplete="company" autofocus
+                                                   type="text"
+                                                   class="form-control @error('company') is-invalid
+                                           @enderror" name="company" id="company"
+                                                   placeholder="شرکت">
+
+                                            @error('company')
+                                            <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
                                     <div class="col-field col-sm-12 col-md-4">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="Message" id="Message" required
-                                                      placeholder="پیام"></textarea>
+                                            <textarea autocomplete="text" autofocus
+                                                      onkeyup="this.value=removeSpaces(this.value)"
+                                                      class="form-control @error('text') is-invalid
+                                           @enderror"
+                                                      name="text" id="text"
+                                                      placeholder="پیام *">{{old('text')}}</textarea>
+
+                                            @error('text')
+                                            <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                            @enderror
                                         </div>
                                     </div>
+
                                     <div class="col-field col-sm-12 col-md-4">
+
                                         <div class="form-group">
-                                            <div class="g-recaptcha"
-                                                 data-sitekey="6LcREI0UAAAAAJ90FFimxQyB7pasXFaoS9cuHBBf"></div>
+                                            {!! app('captcha')->display(); !!}
+                                            @if ($errors->has('g-recaptcha-response'))
+                                                <span class="help-block" role="alert">
+                                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                                        </span>
+                                            @endif
                                         </div>
+
                                         <div class="form-group">
-                                            <div class="">
+                                            <div>
                                                 <button type="submit" class="btn btn-shadow-2 wow swing">ارسال پیام
                                                 </button>
                                             </div>
                                         </div>
+
                                     </div>
 
                                 </div>
@@ -111,4 +174,68 @@
             </div>
         </section>
 
-@include('site.layout.footer')
+        @section('site_js')
+            <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?explicit&hl=fa" async
+                    defer></script>
+        @endsection
+
+        @include('site.layout.footer')
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $('#contact_form').validate({
+
+                    rules: {
+                        name: {
+                            required: true
+                        },
+
+                        email: {
+                            required: true,
+                            email: true
+                        },
+
+                        mobile: {
+                            required: true,
+                            checkMobile: true
+                        },
+
+                        text: {
+                            required: true
+                        }
+                    },
+
+                    messages: {
+                        name: {
+                            required: "لطفا نام را وارد کنید"
+                        },
+
+                        email: {
+                            required: "لطفا ایمیل را وارد کنید",
+                            email: "لطفا ایمیل را صحیح را وارد کنید"
+                        },
+
+                        mobile: {
+                            required: "لطفا تلفن همراه را وارد کنید",
+                            checkMobile: "لطفا تلفن همراه را صحیح وارد کنید"
+                        },
+
+                        text: {
+                            required: "لطفا پیام را وارد کنید"
+                        }
+                    },
+                    submitHandler: function (form) {
+                        if (grecaptcha.getResponse()) {
+                            form.submit();
+                        } else {
+                            toastr['info']('لطفا ریکپچا را کامل کنید', 'پیام');
+                        }
+                    }
+
+                });
+
+            });
+
+        </script>

@@ -25,7 +25,8 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{{asset('assets/common/images/logo/apple-icon-144x144.png')}}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{asset('assets/common/images/logo/apple-icon-152x152.png')}}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/common/images/logo/apple-icon-180x180.png')}}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{asset('assets/common/images/logo/android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="{{asset('assets/common/images/logo/android-icon-192x192.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/common/images/logo/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets/common/images/logo/favicon-96x96.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/common/images/logo/favicon-16x16.png')}}">
@@ -62,125 +63,140 @@
     </div>
 </div>
 
-<!--pop-->
-<!--end pop-->
-<header id="top" class="header-home">
-    <div class="brand-panel">
-        <a href="#top" class="brand js-target-scroll">
-            پله پیچ زارع
-        </a>
-        <div class="slide-number">
-            <span class="current-number text-primary">0<span class="count">1</span></span>
-            <sup><span class="delimiter">/</span> 0<span class="total-count"></span></sup>
+<header id="top" class="@if (request()->routeIs('home'))
+    header-home
+    @else
+    header-inner
+@endif">
+
+    @if (request()->routeIs('home'))
+        <div class="brand-panel">
+            <a href="#top" class="brand js-target-scroll">
+                پله پیچ زارع
+            </a>
+
+            <div class="slide-number">
+                <span class="current-number text-primary">0<span class="count">1</span></span>
+                <sup><span class="delimiter">/</span> 0<span class="total-count"></span></sup>
+            </div>
+
         </div>
-    </div>
-    <div class="header-phone">(021) 22131821</div>
-    <div class="vertical-panel"></div>
-    <div class="vertical-panel-content">
-        <div class="vertical-panel-info">
-            <div class="vertical-panel-title"></div>
-            <div class="line"></div>
+
+        <div class="vertical-panel"></div>
+        <div class="vertical-panel-content">
+            <div class="vertical-panel-info">
+                <div class="vertical-panel-title"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="social-list">
+                <li><a href="https://www.instagram.com/dimehstair" class="fa fa-instagram"></a></li>
+                <li><a href="https://telegram.me/dimehstair" class="fa fa-telegram"></a></li>
+            </ul>
         </div>
-        <ul class="social-list">
-            <li><a href="https://www.instagram.com/dimehstair" class="fa fa-instagram"></a></li>
-            <li><a href="https://telegram.me/dimehstair" class="fa fa-telegram"></a></li>
-        </ul>
-    </div>
+    @else
+        <div class="brand-panel">
+            <a href="#top" class="brand js-target-scroll">
+                پله پیچ زارع
+            </a>
+        </div>
+        <div class="vertical-panel-content">
+            <div class="vertical-panel-info">
+                <div class="vertical-panel-title"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="social-list">
+                <li><a href="https://www.instagram.com/dimehstair" class="fa fa-instagram"></a></li>
+                <li><a href="https://telegram.me/dimehstair" class="fa fa-telegram"></a></li>
+            </ul>
+        </div>
+    @endif
+
 
     <nav class="navbar-desctop visible-md visible-lg">
         <div class="container">
             <a href="#top" class="brand js-target-scroll">
-                <img src="/assets/frontend/img/logo.png">
+                <img src="{{asset('assets/common/images/logo/android-icon-72x72.png')}}" alt="logo">
             </a>
             <ul class="navbar-desctop-menu">
-                <li class="">
 
+                @auth()
+                    <li>
+                        <a target="_blank" href="{{route('dashboard')}}" title="پنل مدیریت">پنل مدیریت</a>
+                    </li>
+                @endauth
+
+                <li>
                     <a href="{{route('home')}}" title="صفحه اصلی">صفحه اصلی</a>
-
                 </li>
+
                 <li>
-                    <!-- اگر کاتاگوری داشت-->
-                    <a href="javascript:void(0)" title="">محصولات</a>
+                    <a href="javascript:void(0)" title="محصولات">محصولات</a>
 
                     <ul>
 
+                        @if (count($products_categories))
 
-                        <li>
-                            <a href="/fa/Products/List/82/پله-فلزی-شمشیری" title="پله فلزی شمشیری">پله فلزی شمشیری</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/83/پله-فلزی-باکس-پلکانی" title="پله فلزی باکس پلکانی">پله فلزی
-                                باکس پلکانی</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/84/پله-فلزی-سازه-میانی" title="پله فلزی سازه میانی">پله فلزی سازه
-                                میانی</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/85/پله-فلزی-کنسول" title="پله فلزی کنسول">پله فلزی کنسول</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/86/پله-فلزی-مدل-لوله-مرکزی" title="پله فلزی مدل لوله مرکزی">پله
-                                فلزی مدل لوله مرکزی</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/87/پله-فرار" title="پله فرار">پله فرار</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/88/پله-گرد-فلزی" title="پله گرد فلزی">پله گرد فلزی</a>
-                        </li>
+                            @foreach($products_categories as $value)
 
+                                <li>
+                                    <a href="{{$value->products_path()}}" title="{{$value->name}}">{{$value->name}}</a>
+                                </li>
 
-                        <li>
-                            <a href="/fa/Products/list/پله-فلزی" title="پله فلزی">پله فلزی</a>
-                        </li>
+                            @endforeach
+
+                        @endif
 
                     </ul>
                 </li>
+
                 <li>
-                    <!-- اگر کاتاگوری داشت-->
-                    <a href="javascript:void(0)" title="">پروژه ها</a>
+                    <a href="javascript:void(0)" title="پروژه ها">پروژه ها</a>
 
                     <ul>
 
+                        @if (count($projects_categories))
 
-                        <li>
-                            <a href="/fa/Projects/List/2/پروژهای-پله-فلزی" title="پروژهای پله فلزی">پروژهای پله فلزی</a>
-                        </li>
+                            @foreach($projects_categories as $value)
 
+                                <li>
+                                    <a href="{{$value->projects_path()}}" title="{{$value->name}}">{{$value->name}}</a>
+                                </li>
+
+                            @endforeach
+
+                        @endif
 
                     </ul>
                 </li>
+
                 <li>
-                    <!-- اگر کاتاگوری داشت-->
-                    <a href="javascript:void(0)" title="">مقالات</a>
+                    <a href="javascript:void(0)" title="مقالات">مقالات</a>
 
                     <ul>
 
+                        @if (count($posts_categories))
 
-                        <li>
-                            <a href="/fa/Blogs/List/3/پله-و-سازه-های-فلزی" title="پله و سازه های فلزی">پله و سازه های
-                                فلزی</a>
-                        </li>
+                            @foreach($posts_categories as $value)
 
+                                <li>
+                                    <a href="{{$value->posts_path()}}" title="{{$value->name}}">{{$value->name}}</a>
+                                </li>
+
+                            @endforeach
+
+                        @endif
 
                     </ul>
                 </li>
-                <li class="dropdown simple-dropdown">
 
-                    <a href="/fa/pages/19/درباره-ما" title="درباره ما">درباره ما</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="javascript:void(0)" title="دانلود کاتالوگ">دانلود کاتالوگ</a>
-                        </li>
-                    </ul>
-
+                <li>
+                    <a href="{{route('about-us')}}" title="درباره ما">درباره ما</a>
                 </li>
-                <li class="">
 
-                    <a href="/fa/pages/20/تماس-با-ما" title="تماس با ما">تماس با ما</a>
-
+                <li>
+                    <a href="{{route('contact-us')}}" title="تماس با ما">تماس با ما</a>
                 </li>
+
             </ul>
 
         </div>
@@ -188,7 +204,7 @@
 
     <nav class="navbar-mobile">
         <a href="#top" class="brand js-target-scroll">
-            <img src="/assets/frontend/img/logo.png">
+            <img src="{{asset('assets/frontend/img/logo.png')}}" alt="logo">
         </a>
 
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile">
@@ -199,94 +215,84 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar-mobile">
             <ul class="navbar-nav-mobile">
-                <li class="">
 
-                    <a href="/" title="صفحه اصلی">صفحه اصلی</a>
+                @auth()
+                    <li>
+                        <a target="_blank" href="{{route('dashboard')}}" title="پنل مدیریت">پنل مدیریت</a>
+                    </li>
+                @endauth
 
-                </li>
                 <li>
-                    <!-- اگر کاتاگوری داشت-->
-                    <a href="#" title="">محصولات <i class="fa fa-angle-down"></i></a>
+                    <a href="{{route('home')}}" title="صفحه اصلی">صفحه اصلی</a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0)" title="محصولات">محصولات <i class="fa fa-angle-down"></i></a>
+                    <ul>
+
+                        @if (count($products_categories))
+
+                            @foreach($products_categories as $value)
+
+                                <li>
+                                    <a href="{{$value->products_path()}}" title="{{$value->name}}">{{$value->name}}</a>
+                                </li>
+
+                            @endforeach
+
+                        @endif
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0)" title="پروژه ها">پروژه ها <i class="fa fa-angle-down"></i></a>
 
                     <ul>
 
+                        @if (count($projects_categories))
 
-                        <li>
-                            <a href="/fa/Products/List/82/پله-فلزی-شمشیری" title="پله فلزی شمشیری">پله فلزی شمشیری</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/83/پله-فلزی-باکس-پلکانی" title="پله فلزی باکس پلکانی">پله فلزی
-                                باکس پلکانی</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/84/پله-فلزی-سازه-میانی" title="پله فلزی سازه میانی">پله فلزی سازه
-                                میانی</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/85/پله-فلزی-کنسول" title="پله فلزی کنسول">پله فلزی کنسول</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/86/پله-فلزی-مدل-لوله-مرکزی" title="پله فلزی مدل لوله مرکزی">پله
-                                فلزی مدل لوله مرکزی</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/87/پله-فرار" title="پله فرار">پله فرار</a>
-                        </li>
-                        <li>
-                            <a href="/fa/Products/List/88/پله-گرد-فلزی" title="پله گرد فلزی">پله گرد فلزی</a>
-                        </li>
+                            @foreach($projects_categories as $value)
 
+                                <li>
+                                    <a href="{{$value->projects_path()}}" title="{{$value->name}}">{{$value->name}}</a>
+                                </li>
 
-                        <li>
-                            <a href="/fa/Products/list/پله-فلزی" title="پله فلزی">پله فلزی</a>
-                        </li>
+                            @endforeach
+
+                        @endif
 
                     </ul>
                 </li>
+
                 <li>
-                    <!-- اگر کاتاگوری داشت-->
-                    <a href="#" title="">پروژه ها <i class="fa fa-angle-down"></i></a>
+                    <a href="javascript:void(0)" title="مقالات">مقالات <i class="fa fa-angle-down"></i></a>
 
                     <ul>
 
+                        @if (count($posts_categories))
 
-                        <li>
-                            <a href="/fa/Projects/List/2/پروژهای-پله-فلزی" title="پروژهای پله فلزی">پروژهای پله فلزی</a>
-                        </li>
+                            @foreach($posts_categories as $value)
 
+                                <li>
+                                    <a href="{{$value->posts_path()}}" title="{{$value->name}}">{{$value->name}}</a>
+                                </li>
+
+                            @endforeach
+
+                        @endif
 
                     </ul>
                 </li>
+
                 <li>
-                    <!-- اگر کاتاگوری داشت-->
-                    <a href="#" title="">مقالات <i class="fa fa-angle-down"></i></a>
-
-                    <ul>
-
-
-                        <li>
-                            <a href="/fa/Blogs/List/3/پله-و-سازه-های-فلزی" title="پله و سازه های فلزی">پله و سازه های
-                                فلزی</a>
-                        </li>
-
-
-                    </ul>
+                    <a href="{{route('about-us')}}" title="درباره ما">درباره ما</a>
                 </li>
-                <li class="dropdown simple-dropdown">
 
-                    <a href="/fa/pages/19/درباره-ما" title="درباره ما">درباره ما</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="javascript:void(0)" title="دانلود کاتالوگ">دانلود کاتالوگ</a>
-                        </li>
-                    </ul>
-
+                <li>
+                    <a href="{{route('contact-us')}}" title="تماس با ما">تماس با ما</a>
                 </li>
-                <li class="">
 
-                    <a href="/fa/pages/20/تماس-با-ما" title="تماس با ما">تماس با ما</a>
-
-                </li>
             </ul>
 
         </div>

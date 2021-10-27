@@ -54,10 +54,10 @@
                                 </form>
                             </div>
 
-                            <a href="{{route('contacts.index','type='.\App\Models\ContactUs::READ)}}"
+                            <a href="{{route('contacts.index','type='.\App\Models\Contact::READ)}}"
                                class="btn btn-success">خوانده شده</a>
 
-                            <a href="{{route('contacts.index','type='.\App\Models\ContactUs::UNREAD)}}"
+                            <a href="{{route('contacts.index','type='.\App\Models\Contact::UNREAD)}}"
                                class="btn btn-danger">خوانده نشده</a>
 
                         </div>
@@ -70,7 +70,7 @@
                                     <th>نام</th>
                                     <th>ایمیل</th>
                                     <th>تلفن همراه</th>
-                                    <th>موضوع</th>
+                                    <th>شرکت</th>
                                     <th>وضعیت</th>
                                     <th>تاریخ ارسال</th>
                                     <th>مشاهده پیام</th>
@@ -84,13 +84,8 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$value->name}}</td>
                                             <td>{{$value->email}}</td>
-                                            <td>{{$value->phone}}</td>
-                                            <td>
-                                                <a href="javascript:void(0)" data-toggle="modal"
-                                                   data-target="#contactSubject{{$value['id']}}">
-                                                    <i class="fa fa-eye text-success"></i>
-                                                </a>
-                                            </td>
+                                            <td>{{$value->mobile}}</td>
+                                            <td>{{$value->company}}</td>
                                             {!! $value->type() !!}
                                             <td>{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strtotime($value['created_at']))}}</td>
                                             <td>
@@ -99,41 +94,6 @@
                                                 </a>
                                             </td>
                                         </tr>
-
-                                        <div class="modal fade mt-lg-5"
-                                             id="contactSubject{{$value['id']}}" tabindex="-1"
-                                             role="dialog"
-                                             aria-hidden="true">
-
-                                            <div class="modal-dialog modal-lg" role="document">
-
-                                                <div class="modal-content">
-
-                                                    <div class="modal-header">
-
-                                                        <h6 class="modal-title">
-                                                            موضوع پیام
-                                                            ({{$value->name}})
-                                                        </h6>
-
-                                                        <a style="color: red;cursor: pointer"
-                                                           data-dismiss="modal" aria-label="Close">
-                                                            <i style="color: red" class="fa fa-close"></i>
-                                                        </a>
-
-                                                    </div>
-
-                                                    <div class="modal-body">
-
-                                                        <input value="{{$value['subject']}}" type="text" class="form-control" readonly>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
 
                                     @endforeach
 

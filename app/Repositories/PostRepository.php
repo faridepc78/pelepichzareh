@@ -54,4 +54,12 @@ class PostRepository
                 'image_id' => $image_id
             ]);
     }
+
+    public function findByCategoryId($category_id)
+    {
+        return Post::query()
+            ->where('category_id', '=', $category_id)
+            ->latest()
+            ->paginate(12);
+    }
 }

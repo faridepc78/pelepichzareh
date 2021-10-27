@@ -3,7 +3,7 @@
         <div class="row-base row">
             <div class="col-base text-left-md col-md-4">
                 <a href="#top" class="brand js-target-scroll">
-                    <img src="/assets/frontend/img/logo.png" style="height:auto;">
+                    <img alt="logo" src="{{asset('assets/common/images/logo/android-icon-72x72.png')}}" style="height:auto;">
                 </a>
             </div>
             <div class="text-center-md col-base col-md-4">

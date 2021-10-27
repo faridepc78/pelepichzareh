@@ -24,10 +24,12 @@
                                 <img src="{{$value->image->original}}" alt="" data-bgposition="center center"
                                      data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
-                                <div class="slide-title tp-caption tp-resizeme" data-x="['center','center','center','center']"
+                                <div class="slide-title tp-caption tp-resizeme"
+                                     data-x="['center','center','center','center']"
                                      data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
                                      data-voffset="['55','55', '55']" data-fontsize="['50','45', '55']"
-                                     data-lineheight="['80','75', '65']" data-width="['1100','700','480']" data-height="none"
+                                     data-lineheight="['80','75', '65']" data-width="['1100','700','480']"
+                                     data-height="none"
                                      data-whitespace="normal" data-transform_idle="o:1;"
                                      data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
                                      data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
@@ -36,10 +38,12 @@
                                     {{$value->name}}
                                 </div>
 
-                                <div class="slide-subtitle tp-caption tp-resizeme iran" data-x="['240','240','180','240']"
+                                <div class="slide-subtitle tp-caption tp-resizeme iran"
+                                     data-x="['240','240','180','240']"
                                      data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
                                      data-voffset="['108','108', '118']" data-fontsize="['18','25','25']"
-                                     data-lineheight="['80','75', '65']" data-width="['1100','700','550']" data-height="none"
+                                     data-lineheight="['80','75', '65']" data-width="['1100','700','550']"
+                                     data-height="none"
                                      data-whitespace="normal" data-transform_idle="o:1;"
                                      data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"
                                      data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
@@ -177,74 +181,31 @@
             <div class="section-content">
                 <div class="projects-carousel js-projects-carousel js-projects-gallery1">
 
+                    @if (count($products))
 
-                    <div class="project project-light js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/1Zoom.jpg" title="سازه میانی با کف پله پلکسی">
-                            <figure>
-                                <img alt="پله فلزی سازه میانی" src="/assets/frontend/img/uploads/1Small.jpg">
-                                <figcaption>
-                                    <h3 class="project-title rtl">
-                                        پله فلزی سازه میانی
-                                    </h3>
+                        @foreach($products as $value)
 
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project  js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/2Zoom.jpg" title="پله فلزی سازه میانی">
-                            <figure>
-                                <img alt="پله فلزی دوبلکس سازه میانی" src="/assets/frontend/img/uploads/2Small.jpg">
-                                <figcaption>
-                                    <h3 class="project-title rtl">
-                                        پله فلزی دوبلکس سازه میانی
-                                    </h3>
+                            <div class="project project-light js-projects-gallery">
+                                <a href="{{$value->image->original}}" title="{{$value->name}}">
+                                    <figure>
+                                        <img alt="{{$value->name}}" src="{{$value->image->original}}">
+                                        <figcaption>
+                                            <h3 class="project-title rtl">
+                                                {{$value->name}}
+                                            </h3>
+                                            @if ($value->bio!==null)
+                                                <div class="mydiv product-small-desc">
+                                                    {{$value->bio}}
+                                                </div>
+                                            @endif
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
 
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project project-light js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/3Zoom.jpg" title="پله فلزی شمشیری دو طرفه باکس شده">
-                            <figure>
-                                <img alt="پله فلزی شمشیری دو طرفه باکس شده"
-                                     src="/assets/frontend/img/uploads/3Small.jpg">
-                                <figcaption>
-                                    <h3 class="project-title rtl">
-                                        پله فلزی شمشیری دو طرفه باکس شده
-                                    </h3>
+                        @endforeach
 
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project  js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/4Zoom.jpg" title="پله فلزی شمشیری دو طرفه بلند">
-                            <figure>
-                                <img alt="پله فلزی شمشیری دو طرفه بلند" src="/assets/frontend/img/uploads/4Small.jpg">
-                                <figcaption>
-                                    <h3 class="project-title rtl">
-                                        پله فلزی شمشیری دو طرفه بلند
-                                    </h3>
-
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project project-light js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/5Zoom.jpg" title="پله فلزی شمشیری دو طرفه بلند">
-                            <figure>
-                                <img alt="پله شمشیری دوطرف بلند" src="/assets/frontend/img/uploads/5Small.jpg">
-                                <figcaption>
-                                    <h3 class="project-title rtl">
-                                        پله شمشیری دوطرف بلند
-                                    </h3>
-
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-
+                    @endif
 
                 </div>
             </div>
@@ -259,87 +220,31 @@
             <div class="section-content">
                 <div class="projects-carousel js-projects-carousel js-projects-gallery1">
 
+                    @if (count($projects))
 
-                    <div class="project  js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/miladZooml.jpg" title="پروژه برج میلاد">
-                            <figure>
-                                <img alt="پروژه برج میلاد" src="/assets/frontend/img/uploads/miladSmall.jpg">
-                                <figcaption>
-                                    <h3 class="project-title">
-                                        پروژه برج میلاد
-                                    </h3>
+                        @foreach($projects as $value)
 
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project project-light js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/ShrifiZoom.jpg" title="خانه شریفی ها">
-                            <figure>
-                                <img alt="خانه شریفی ها" src="/assets/frontend/img/uploads/ShrifiSmall.jpg">
-                                <figcaption>
-                                    <h3 class="project-title">
-                                        خانه شریفی ها
-                                    </h3>
+                            <div class="project project-light js-projects-gallery">
+                                <a href="{{$value->image->original}}" title="{{$value->name}}">
+                                    <figure>
+                                        <img alt="{{$value->name}}" src="{{$value->image->original}}">
+                                        <figcaption>
+                                            <h3 class="project-title rtl">
+                                                {{$value->name}}
+                                            </h3>
+                                            @if ($value->bio!==null)
+                                                <div class="mydiv product-small-desc">
+                                                    {{$value->bio}}
+                                                </div>
+                                            @endif
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
 
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project  js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/YademanZoom.jpg" title="پروژه برج یادمان گرگان">
-                            <figure>
-                                <img alt="پروژه برج یادمان گرگان" src="/assets/frontend/img/uploads/YademanSmall.jpg">
-                                <figcaption>
-                                    <h3 class="project-title">
-                                        پروژه برج یادمان گرگان
-                                    </h3>
+                        @endforeach
 
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project project-light js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/BimehZoom.jpg" title="تهران بیمه مرکزی">
-                            <figure>
-                                <img alt="تهران بیمه مرکزی" src="/assets/frontend/img/uploads/BimehSmall.jpg">
-                                <figcaption>
-                                    <h3 class="project-title">
-                                        تهران بیمه مرکزی
-                                    </h3>
-
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project  js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/jamZoom.jpg" title="پروژه برج جام">
-                            <figure>
-                                <img alt="پروژه برج جام" src="/assets/frontend/img/uploads/JamSmall.jpg">
-                                <figcaption>
-                                    <h3 class="project-title">
-                                        پروژه برج جام
-                                    </h3>
-
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="project project-light js-projects-gallery ">
-                        <a href="/assets/frontend/img/uploads/ParkfanaZoom.jpg" title="پارک فناوری ریاست جمهوری">
-                            <figure>
-                                <img alt="پارک فناوری ریاست جمهوری"
-                                     src="/assets/frontend/img/uploads/parkfanaSmall.jpg">
-                                <figcaption>
-                                    <h3 class="project-title">
-                                        پارک فناوری ریاست جمهوری
-                                    </h3>
-
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-
+                    @endif
 
                 </div>
             </div>
@@ -350,7 +255,7 @@
                 <h4 class="experience-info wow fadeInRight"><span class="text-primary">سال تجربه موفق</span><br> در
                     طراحی و ساخت پله های فلزی در ایران</h4>
                 <div class="text-parallax" data-stellar-background-ratio="0.85"
-                     style="background-image: url('/assets/frontend/img/bg/text-1.jpg');">
+                     style="background-image: url({{asset('assets/frontend/img/bg/text-1.jpg')}});">
                     <div class="text-parallax-content">۵۰</div>
                 </div>
 
@@ -366,21 +271,22 @@
                     <ul class="clients-list">
 
                         <li class="client">
-                            <a><img alt="شهرداری تهران" src="/assets/frontend/img/uploads/shahrdari.png"></a>
+                            <a><img alt="شهرداری تهران" src="{{asset('assets/frontend/img/customers/shahrdari.png')}}"></a>
                         </li>
                         <li class="client">
-                            <a><img alt="ایران مال" src="/assets/frontend/img/uploads/mall.png"></a>
+                            <a><img alt="ایران مال" src="{{asset('assets/frontend/img/customers/mall.png')}}"></a>
                         </li>
                         <li class="client">
-                            <a><img alt="بانک مرکزی" src="/assets/frontend/img/uploads/bnk_markazi_d.png"></a>
+                            <a><img alt="بانک مرکزی" src="{{asset('assets/frontend/img/customers/bnk_markazi_d.png')}}"></a>
                         </li>
                         <li class="client">
-                            <a><img alt="هما" src="/assets/frontend/img/uploads/1280px-Iran_Air_logo.svg.png"></a>
+                            <a><img alt="هما"
+                                    src="{{asset('assets/frontend/img/customers/1280px-Iran_Air_logo.svg.png')}}"></a>
                         </li>
                         <li class="client">
-                            <a><img alt="برج میلاد" src="/assets/frontend/img/uploads/Borj-Milad-Tehran-Logo.png"></a>
+                            <a><img alt="برج میلاد"
+                                    src="{{asset('assets/frontend/img/customers/Borj-Milad-Tehran-Logo.png')}}"></a>
                         </li>
-
 
                     </ul>
                 </div>

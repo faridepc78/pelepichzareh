@@ -55,10 +55,10 @@
                                 </div>
 
                                 <div class="form-group col-md-4">
-                                    <label for="phone">تلفن همراه</label>
+                                    <label for="mobile">تلفن همراه</label>
                                     <input readonly type="text"
                                            class="form-control"
-                                           value="{{ $contact->phone }}" id="phone">
+                                           value="{{ $contact->mobile }}" id="mobile">
                                 </div>
 
                             </div>
@@ -66,10 +66,10 @@
                             <div class="form-row">
 
                                 <div class="form-group col-md-6">
-                                    <label for="subject">موضوع</label>
+                                    <label for="company">شرکت</label>
                                     <input readonly type="text"
                                            class="form-control"
-                                           value="{{ $contact->subject }}" id="subject">
+                                           value="{{ $contact->company }}" id="company">
                                 </div>
 
                                 <div class="form-group col-md-6">

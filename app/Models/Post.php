@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Post extends Model
 {
@@ -38,5 +39,10 @@ class Post extends Model
     public function media()
     {
         return $this->hasMany(PostMedia::class, 'post_id');
+    }
+
+    public function path()
+    {
+        return route('post', Hashids::encode($this->id) . '-' . $this->slug);
     }
 }

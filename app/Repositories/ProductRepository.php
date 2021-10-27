@@ -50,4 +50,20 @@ class ProductRepository
                 'image_id' => $image_id
             ]);
     }
+
+    public function findByCategoryId($category_id)
+    {
+        return Product::query()
+            ->where('category_id', '=', $category_id)
+            ->latest()
+            ->paginate(12);
+    }
+
+    public function random()
+    {
+        return Product::query()
+            ->limit(4)
+            ->inRandomOrder()
+            ->get();
+    }
 }

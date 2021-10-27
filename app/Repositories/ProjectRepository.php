@@ -50,4 +50,20 @@ class ProjectRepository
                 'image_id' => $image_id
             ]);
     }
+
+    public function findByCategoryId($category_id)
+    {
+        return Project::query()
+            ->where('category_id', '=', $category_id)
+            ->latest()
+            ->paginate(12);
+    }
+
+    public function random()
+    {
+        return Project::query()
+            ->limit(4)
+            ->inRandomOrder()
+            ->get();
+    }
 }

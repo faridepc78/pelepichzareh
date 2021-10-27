@@ -18,6 +18,8 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('09123456789'),
                 'image_id' => null
             ]);
+        } else {
+            $this->command->warn('Admin has already been created');
         }
     }
 }
